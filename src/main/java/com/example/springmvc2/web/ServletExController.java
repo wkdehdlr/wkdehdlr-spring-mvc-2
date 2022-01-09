@@ -15,13 +15,13 @@ public class ServletExController {
         throw new RuntimeException("예외발생");
     }
 
-    @GetMapping("/error-400")
+    @GetMapping("/error-404")
     public void error400(HttpServletResponse response) throws IOException {
-        response.sendError(400);
+        response.sendError(404);
     }
 
     @GetMapping("/error-500")
     public void error500(HttpServletResponse response) throws IOException {
-        response.sendError(400);
+        response.sendError(500);
     }
 }
