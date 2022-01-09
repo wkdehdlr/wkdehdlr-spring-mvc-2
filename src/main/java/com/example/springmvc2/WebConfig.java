@@ -15,21 +15,21 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(new LogInterceptor())
-//            .order(1)
-//            .addPathPatterns("/**")
-//            .excludePathPatterns("/css/**", "/*.ico", "/error");
-//
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LogInterceptor())
+            .order(1)
+            .addPathPatterns("/**")
+            .excludePathPatterns("/css/**", "/*.ico", "/error");
+
 //        registry.addInterceptor(new LoginCheckerInterceptor())
 //            .order(2)
 //            .addPathPatterns("/**")
 //            .excludePathPatterns("/", "/members/add", "/login", "/logout", "/css/**", "/*.ico",
 //                "/error");
-//    }
+    }
 
-    @Bean
+//    @Bean
     public FilterRegistrationBean<Filter> logFilter() {
         FilterRegistrationBean<Filter> filterFilterRegistrationBean = new FilterRegistrationBean<>();
         filterFilterRegistrationBean.setFilter(new LogFilter());
