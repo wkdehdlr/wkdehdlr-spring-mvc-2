@@ -16,6 +16,10 @@ public class ApiExceptionController {
         if (id.equals("ex")) {
             throw new RuntimeException("예외 발생!!");
         }
+
+        if (id.equals("bad")) {
+            throw new IllegalArgumentException("예외 발생!!");
+        }
         return new MemberDto(id, "홍길동");
     }
 
