@@ -21,7 +21,7 @@ public class MyHandlerExceptionResolver implements HandlerExceptionResolver {
                 return new ModelAndView();
             }
         } catch (IOException e) {
-            log.error("resolver catch error {}", e);
+            log.error("resolver catch error ", e);
         }
         return null;
     }

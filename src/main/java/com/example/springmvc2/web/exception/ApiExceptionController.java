@@ -20,6 +20,10 @@ public class ApiExceptionController {
         if (id.equals("bad")) {
             throw new IllegalArgumentException("예외 발생!!");
         }
+
+        if (id.equals("user")) {
+            throw new UserException("사용자 오류");
+        }
         return new MemberDto(id, "홍길동");
     }
 

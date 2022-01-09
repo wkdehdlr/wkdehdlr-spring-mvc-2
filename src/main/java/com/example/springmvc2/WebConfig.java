@@ -5,6 +5,7 @@ import com.example.springmvc2.web.filter.LoginCheckerFilter;
 import com.example.springmvc2.web.interceptor.LogInterceptor;
 import com.example.springmvc2.web.interceptor.LoginCheckerInterceptor;
 import com.example.springmvc2.web.resolver.MyHandlerExceptionResolver;
+import com.example.springmvc2.web.resolver.UserHandlerExceptionResolver;
 import java.util.List;
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
@@ -35,6 +36,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
         resolvers.add(new MyHandlerExceptionResolver());
+        resolvers.add(new UserHandlerExceptionResolver());
     }
 
     //    @Bean
