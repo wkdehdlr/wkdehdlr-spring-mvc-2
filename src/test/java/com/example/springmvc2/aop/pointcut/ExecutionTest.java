@@ -98,4 +98,11 @@ public class ExecutionTest {
         pointcut.setExpression("execution(* com.example.springmvc2.aop.member.MemberService.*(..))");
         assertTrue(pointcut.matches(helloMethod, MemberServiceImpl.class));
     }
+
+    @Test
+    void 부모_타입에_있는_메소드만_허용() throws NoSuchMethodException {
+        pointcut.setExpression("execution(* com.example.springmvc2.aop.member.MemberService.*(..))");
+        Method internalMethod = MemberServiceImpl.class.getMethod("internal", String.class);
+        assertFalse(pointcut.matches(internalMethod, MemberServiceImpl.class));
+    }
 }
