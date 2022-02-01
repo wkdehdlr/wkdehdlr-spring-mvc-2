@@ -6,6 +6,7 @@ import com.example.springmvc2.aop.aspect.AspectV1;
 import com.example.springmvc2.aop.aspect.AspectV2;
 import com.example.springmvc2.aop.aspect.AspectV3;
 import com.example.springmvc2.aop.aspect.AspectV5Order;
+import com.example.springmvc2.aop.aspect.AspectV6;
 import com.example.springmvc2.aop.order.OrderRepository;
 import com.example.springmvc2.aop.order.OrderService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +20,8 @@ import org.springframework.context.annotation.Import;
 @SpringBootTest
 //@Import(AspectV1.class)
 //@Import(AspectV2.class)
-@Import({AspectV5Order.LogAspect.class, AspectV5Order.TxAspect.class})
+//@Import({AspectV5Order.LogAspect.class, AspectV5Order.TxAspect.class})
+@Import(AspectV6.class)
 public class AopTest {
 
     @Autowired
