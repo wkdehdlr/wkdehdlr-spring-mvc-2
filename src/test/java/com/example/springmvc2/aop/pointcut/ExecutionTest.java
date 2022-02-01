@@ -105,4 +105,34 @@ public class ExecutionTest {
         Method internalMethod = MemberServiceImpl.class.getMethod("internal", String.class);
         assertFalse(pointcut.matches(internalMethod, MemberServiceImpl.class));
     }
+
+    @Test
+    void String_타입_파라미터_허용() {
+        pointcut.setExpression("execution(* *(String))");
+        assertTrue(pointcut.matches(helloMethod, MemberServiceImpl.class));
+    }
+
+    @Test
+    void 파라미터가_없어야한다() {
+        pointcut.setExpression("execution(* *())");
+        assertFalse(pointcut.matches(helloMethod, MemberServiceImpl.class));
+    }
+
+    @Test
+    void 정확히_하나의_파라미터_허용_모든_타입_허용() {
+        pointcut.setExpression("execution(* *(*))");
+        assertTrue(pointcut.matches(helloMethod, MemberServiceImpl.class));
+    }
+
+    @Test
+    void 파라미터_숫자와_무관하게_모든_파라미터_모든_타입_허용() {
+        pointcut.setExpression("execution(* *(..))");
+        assertTrue(pointcut.matches(helloMethod, MemberServiceImpl.class));
+    }
+
+    @Test
+    void String_타입으로_시작하고_숫자와_무관하게_모든_파라미터_모든_타입_허용() {
+        pointcut.setExpression("execution(* *(String, ..))");
+        assertTrue(pointcut.matches(helloMethod, MemberServiceImpl.class));
+    }
 }
