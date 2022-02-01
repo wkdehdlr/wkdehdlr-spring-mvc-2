@@ -2,6 +2,7 @@ package com.example.springmvc2.aop;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.example.springmvc2.aop.aspect.AspectV1;
 import com.example.springmvc2.aop.order.OrderRepository;
 import com.example.springmvc2.aop.order.OrderService;
 import lombok.extern.slf4j.Slf4j;
@@ -9,9 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 
 @Slf4j
 @SpringBootTest
+@Import(AspectV1.class)
 public class AopTest {
 
     @Autowired
