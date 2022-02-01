@@ -92,4 +92,10 @@ public class ExecutionTest {
         pointcut.setExpression("execution(* com.example.springmvc2.aop.member.MemberServiceImpl.*(..))");
         assertTrue(pointcut.matches(helloMethod, MemberServiceImpl.class));
     }
+
+    @Test
+    void typeMatchSuper() {
+        pointcut.setExpression("execution(* com.example.springmvc2.aop.member.MemberService.*(..))");
+        assertTrue(pointcut.matches(helloMethod, MemberServiceImpl.class));
+    }
 }
